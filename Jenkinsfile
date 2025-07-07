@@ -48,10 +48,10 @@ pipeline {
                 script {
                     docker.withRegistry("${registry}", registryCredentials ){
                         sh "docker build -t backend-nest-test-nfh ."
-                        sh "docker tag backend-nest-test-nfh ${dockerImagePrefix}/backend-nest-test-nfh"
                         sh "docker tag backend-nest-test-nfh ${dockerImagePrefix}/backend-nest-test-nfh:${BUILD_NUMBER}"
-                        sh "docker push ${dockerImagePrefix}/backend-nest-test-nfh"
                         sh "docker push ${dockerImagePrefix}/backend-nest-test-nfh:${BUILD_NUMBER}"
+                        sh "docker tag backend-nest-test-nfh ${dockerImagePrefix}/backend-nest-test-nfh"
+                        sh "docker push ${dockerImagePrefix}/backend-nest-test-nfh"
                     }
                 }
             }
