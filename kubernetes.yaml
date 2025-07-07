@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-test-nfh
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-nest-test-nfh
+  namespace: lab-test-nfh
+  labels:
+    app: backend-nest-test-nfh
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-nest-test-nfh
+  template:
+    metadata:
+      labels:
+        app: backend-nest-test-nfh
+    spec:
+      containers:
+      - name: backend-nest-test-nfh
+        image: us-west1-docker.pkg.dev/lab-agibiz/docker-repository/backend-nest-test-nfh
+        imagePullPolicy: Always
