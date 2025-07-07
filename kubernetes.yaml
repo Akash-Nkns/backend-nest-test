@@ -25,15 +25,15 @@ spec:
         image: us-west1-docker.pkg.dev/lab-agibiz/docker-repository/backend-nest-test-nfh
         imagePullPolicy: Always
       imagePullSecrets:
-      - name: regcred
+      - name: regcred-test-nfh
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-nest-svc
+  name: backend-nest-test-nfh-svc
   namespace: lab-test-nfh
   labels:
-    app: backend-nest-svc
+    app: backend-nest-test-nfh-svc
 spec:
   selector:
      app: backend-nest-test-nfh
@@ -50,13 +50,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: test-nfh.devops.cl
+  - host: nfh.devops.cl
     http:
       paths:
       - path: /
         pathType: ImplementationSpecific
         backend:
           service:
-            name: backend-nest-svc
+            name: backend-nest-test-nfh-svc
             port:
               number: 80
