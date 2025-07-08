@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: lab-nfh
+  name: lab-test-nfh
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-nest-test-nfh
-  namespace: lab-nfh
+  namespace: lab-test-nfh
   labels:
     app: backend-nest-test-nfh
 spec:
@@ -31,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-nest-test-nfh-svc
-  namespace: lab-nfh
+  namespace: lab-test-nfh
   labels:
     app: backend-nest-test-nfh-svc
 spec:
@@ -46,7 +46,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-backend-nest-test-nfh
-  namespace: lab-nfh
+  namespace: lab-test-nfh
 spec:
   ingressClassName: nginx
   rules:
