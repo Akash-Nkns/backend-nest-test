@@ -65,7 +65,7 @@ pipeline {
             }
             steps {
                 withKubeConfig([credentialsId: 'gcp-kubeconfig']){
-                    sh "kubectl -n lab-nfh set image deployments/backend-nest-test-nfh backend-nest-test-nfh=${dockerImagePrefix}/backend-nest-test-nfh:${BUILD_NUMBER}"
+                    sh "kubectl -n lab-test-nfh set image deployments/backend-nest-test-nfh backend-nest-test-nfh=${dockerImagePrefix}/backend-nest-test-nfh:${BUILD_NUMBER}"
                 }
             }
         }
